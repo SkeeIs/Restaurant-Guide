@@ -8,11 +8,6 @@ var show = {
       cb(result);  
     });
   },
-  select: function(obj, cb) {
-      orm.select("shows", obj, function(result) {
-        cb(result);  
-      });
-  },
   create: function(obj, cb) {
     orm.create("shows", obj, function(result) {
       cb(result);  

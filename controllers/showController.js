@@ -21,9 +21,7 @@ router.post("/api/shows", function(req, res) {
 router.put("/api/shows/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
-
-  show.update({
+  show.update( {
     have_started: req.body.have_started,
     watched_all: req.body.watched_all,
     liked: req.body.liked
@@ -40,7 +38,7 @@ router.put("/api/shows/:id", function(req, res) {
 router.delete("/api/shows/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  cat.delete(condition, function(result) {
+  show.delete(condition, function(result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, ID does not exist, so 404
       return res.status(404).end();
