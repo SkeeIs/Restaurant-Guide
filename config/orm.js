@@ -14,36 +14,36 @@ var orm = {
   },
   select: function(table, condition, cb) {
     var queryString = "SELECT * FROM ?? WHERE ?";
-    connection.query(queryString, [table, condition], function (error, result) {
-        if (error) throw error;
+    connection.query(queryString, [table, condition], function(err, result) {
+        if (err) {
+          throw error;
+        }  
         cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
-
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
-
-    console.log(queryString);
-
-    connection.query(queryString, vals, function(err, result) {
+  create: function(table, vals, cb) {
+    var queryString = "INSERT INTO ?? SET ?";
+    connection.query(queryString, [table, vals], function(err, result) {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
+  update: function(table, objVals, condition, cb) {
+    var queryString = "UPDATE ?? SET ? WHERE ?";
+    connection.query(queryString, [table, objVals, condition], function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  }
 };
 
 
 
 
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model.
 module.exports = orm;

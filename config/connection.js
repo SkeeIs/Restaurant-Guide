@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
       user: "root",
     
       password: "",
-      database: "restaurantsDB"
+      database: "watchlistDB"
     });
 };
 
