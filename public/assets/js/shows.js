@@ -3,9 +3,11 @@ $(function() {
     $(".change-started").on("click", function(event) {
       var id = $(this).data("id");
       var ifStarted = $(this).data("havestarted");
-  
+      var watchedAll = $(this).data("watchedall");
+
       var startShow = {
-        have_started: ifStarted
+        have_started: ifStarted,
+        watched_all: watchedAll
       };
       console.log("ID OF CLICKED: " + id);
       console.log("VALUE OF havestarted: " + ifStarted);
@@ -24,10 +26,12 @@ $(function() {
   
     $(".change-finished").on("click", function(event) {
         var id = $(this).data("id");
-        var ifFinished = $(this).data("watchedall");
+        var ifStarted = $(this).data("havestarted");
+        var watchedAll = $(this).data("watchedall");
     
         var finishedShow = {
-          watched_all: ifFinished
+          have_started: have_started,  
+          watched_all: watchedAll
         };
         console.log("ID OF CLICKED: " + id);
         // Send the PUT request.
@@ -47,7 +51,7 @@ $(function() {
         var id = $(this).data("id");
         var liked = $(this).data("liked");
     
-        var likedShow = {
+        var likedShow = { 
           liked: liked
         };
         console.log("ID OF CLICKED: " + id);

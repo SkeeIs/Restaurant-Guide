@@ -1,12 +1,12 @@
 <li>
 	{{name}}
 
-    <button class="change-started" data-id="{{id}}" data-havestarted="{{have_started}}">
-       {{#if have_started}} <i class="fas fa-step-backward"></i> {{else}} <i class="fas fa-step-forward"></i> {{/if}}
+    <button class="change-started" data-id="{{id}}" data-havestarted="{{have_started}}" data-watchedall="{{watched_all}}">
+       {{#if have_started}} <i class="fas fa-step-forward"></i> {{else}} <i class="fas fa-step-backward"></i> {{/if}}
     </button>
 
-    <button class="change-finished" data-id="{{id}}" data-watchedall="{{watched_all}}">
-       {{#if watched_all}} <i class="fas fa-fast-backward"></i> {{else}} <i class="fas fa-fast-forward"></i> {{/if}}
+    <button class="change-finished" data-id="{{id}}" data-havestarted="{{have_started}}" data-watchedall="{{watched_all}}">
+       {{#if watched_all}} <i class="fas fa-fast-forward"></i> {{else}} <i class="fas fa-fast-backward"></i> {{/if}}
     </button>
 
 	<button class="change-liked" data-id="{{id}}" data-liked="{{liked}}">

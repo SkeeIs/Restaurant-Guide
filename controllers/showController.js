@@ -24,6 +24,20 @@ router.put("/api/shows/:id", function(req, res) {
   show.update( {
     have_started: req.body.have_started,
     watched_all: req.body.watched_all,
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, ID does not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
+router.put("/api/shows/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  show.update( {
     liked: req.body.liked
   }, condition, function(result) {
     if (result.changedRows == 0) {

@@ -29,7 +29,7 @@
               <div class="card-text">  
                 {{#each shows}}
                   {{#unless this.have_started}} 
-                    {{> shows/show-block}}
+                    {{> shows/show-block have_started=true watched_all=true}}
                   {{/unless}}
                 {{/each}}  
               </div> 
@@ -46,7 +46,7 @@
                 {{#each shows}}
                   {{#if this.have_started}}
                     {{#unless this.watched_all}}
-                      {{> shows/show-block}}
+                      {{> shows/show-block have_started=false watched_all=true}}
                     {{/unless}}
                   {{/if}}
                 {{/each}}  
@@ -63,7 +63,7 @@
               <div class="card-text">
                 {{#each shows}}
                   {{#if this.watched_all}}
-                    {{> shows/show-block}}
+                    {{> shows/show-block have_started=false watched_all=false}}
                   {{/if}}
                 {{/each}}  
               </div>  
