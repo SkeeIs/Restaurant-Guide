@@ -1,11 +1,11 @@
-// Import MySQL connection.
+// Import MySQL connection
 var connection = require("../config/connection.js");
 
-//export orm
+//Export orm
 var orm = {
   all: function(table, cb) {
-  var queryString = "SELECT * FROM " + table + ";";
-    connection.query(queryString, function(err, result) {
+  var queryString = "SELECT * FROM ??";
+    connection.query(queryString, [table], function(err, result) {
       if (err) {
         throw err;
       }

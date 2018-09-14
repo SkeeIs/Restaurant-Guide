@@ -11,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     
       user: "root",
     
-      password: "",
+      password: "password",
       database: "watchlistDB"
     });
 };

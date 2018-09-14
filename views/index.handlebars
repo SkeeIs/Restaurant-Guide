@@ -9,13 +9,35 @@
   <div class="container">
     <div class="row">
         <div class="col-sm">
-        One of three columns
+          <ul class="list-group">
+            {{#each show}}
+              {{#unless have_started}}
+                {{#unless watched_all}}
+                  {{> show/show-block}}
+                {{/unless}}
+              {{/unless}}
+            {{/each}}  
+          </ul>
         </div>
         <div class="col-sm">
-        One of three columns
+          <ul class="list-group">
+            {{#each show}}
+              {{#if have_started}}
+                {{#unless watched_all}}
+                  {{> show/show-block}}
+                {{/unless}}
+              {{/if}}
+            {{/each}}  
+          </ul>
         </div>
         <div class="col-sm">
-        One of three columns
+          <ul class="list-group">
+            {{#each show}}
+              {{#if watched_all}}
+                {{> show/show-block}}
+              {{/if}}
+            {{/each}}  
+          </ul>
         </div>
     </div>
   </div>
