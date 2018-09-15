@@ -2,71 +2,46 @@
 $(function() {
     $(".change-started").on("click", function(event) {
       var id = $(this).data("id");
-      var ifStarted = $(this).data("havestarted");
-      var watchedAll = $(this).data("watchedall");
+      var watchedStatus = $(this).data("watchedstatus");
 
-      var startShow = {
-        have_started: ifStarted,
-        watched_all: watchedAll
+      var showStatus = {
+        watched_status: watchedStatus,
       };
       console.log("ID OF CLICKED: " + id);
-      console.log("VALUE OF havestarted: " + ifStarted);
+      console.log("VALUE OF havestarted: " + watchedStatus);
       // Send the PUT request.
       $.ajax("/api/shows/" + id, {
         type: "PUT",
-        data: startShow
+        data: showStatus
       }).then(
         function() {
-          console.log("changed show to", ifStarted);
+          console.log("changed show to", watchedStatus);
           // Reload the page to get the updated list
           location.reload();
         }
       );
     });
   
-    $(".change-finished").on("click", function(event) {
-        var id = $(this).data("id");
-        var ifStarted = $(this).data("havestarted");
-        var watchedAll = $(this).data("watchedall");
-    
-        var finishedShow = {
-          have_started: have_started,  
-          watched_all: watchedAll
-        };
-        console.log("ID OF CLICKED: " + id);
-        // Send the PUT request.
-        $.ajax("/api/shows/" + id, {
-          type: "PUT",
-          data: finishedShow
-        }).then(
-          function() {
-            console.log("changed show to", ifStarted);
-            // Reload the page to get the updated list
-            location.reload();
-          }
-        );
-      });
+    $(".change-liked").on("click", function(event) {
+    var id = $(this).data("id");
+    var liked = $(this).data("liked");
 
-      $(".change-liked").on("click", function(event) {
-        var id = $(this).data("id");
-        var liked = $(this).data("liked");
-    
-        var likedShow = { 
-          liked: liked
-        };
-        console.log("ID OF CLICKED: " + id);
-        // Send the PUT request.
-        $.ajax("/api/shows/" + id, {
-          type: "PUT",
-          data: likedShow
-        }).then(
-          function() {
-            console.log("changed show to", liked);
-            // Reload the page to get the updated list
-            location.reload();
-          }
-        );
-      });
+    var likedShow = { 
+        liked: liked
+    };
+    console.log("ID OF CLICKED: " + id);
+    // Send the PUT request.
+    $.ajax("/api/shows/liked/" + id, {
+        type: "PUT",
+        data: likedShow
+    }).then(
+        function() {
+        console.log("changed show to", liked);
+        // Reload the page to get the updated list
+        location.reload();
+        }
+    );
+    });
 
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
