@@ -2,6 +2,8 @@
 
 USE sdlmhvgy5sebbjdn;
 
+DROP TABLE IF EXISTS shows;
+
 CREATE TABLE shows
 (
     id INT NOT NULL AUTO_INCREMENT,
