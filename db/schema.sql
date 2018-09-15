@@ -1,8 +1,6 @@
 ### Schema
 
-USE sdlmhvgy5sebbjdn;
-
-DROP TABLE IF EXISTS shows;
+USE uad3lgewqj32caj3;
 
 CREATE TABLE shows
 (

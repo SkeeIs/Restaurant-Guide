@@ -1,4 +1,4 @@
-USE sdlmhvgy5sebbjdn;
+USE uad3lgewqj32caj3;
 
 INSERT INTO shows (name, watched_status, liked) VALUES
 ("Avatar: The Last Airbender", true, true),
